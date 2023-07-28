@@ -1,0 +1,105 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333; /* Dark grey background color */
+}
+
+#text {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 900;
+    color: #fff; /* White text color */
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.btn1, .btn2, .btn3 {
+    width: 250px;
+    height: 250px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.animation {
+    text-align: center;
+}
+
+.fade-in {
+    animation: fadeInAnimation 1s forwards;
+    opacity: 0;
+    animation-iteration-count: infinite; /* Keeps the animation running indefinitely */
+    color: #0e50b4; /* Dark blue text color */
+}
+
+.fade-in-delay {
+    animation: fadeInAnimation 1s forwards;
+    opacity: 0;
+    animation-delay: 2s; /* Delay the animation by 2 seconds */
+    animation-iteration-count: infinite; /* Keeps the animation running indefinitely */
+    color: #0e50b4; /* Dark blue text color */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Position the Play and Reset buttons at the center */
+.play-reset-buttons {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.play-reset-buttons button {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.play-reset-buttons #play {
+    background-color: #1abc9c; /* Turquoise background color */
+    color: #fff; /* White text color */
+}
+
+.play-reset-buttons #reset {
+    background-color: #e74c3c; /* Red background color */
+    color: #fff; /* White text color */
+    display: none; /* Initially hide the reset button */
+}
+
+/* Styling for the result text that appears at the bottom center of the page */
+#result {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 24px;
+    color: #fff; /* White text color */
+}

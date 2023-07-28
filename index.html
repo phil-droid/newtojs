@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="text">Rock Paper Scissors</h1>
+    <div class="animation">
+        <h3 class="fade-in">Choose your weapon!</h3>
+        <h3 class="fade-in-delay">First to get to 5 wins the game</h3>
+    </div>
+
+    <div class="btn">
+        <button class="btn1" id="rock"><img src="images/rock.jpg" alt="rock image"/></button>
+        <button class="btn2" id="paper"><img src="images/paper.png" alt="paper image"/></button>
+        <button class="btn3" id="scissors"><img src="images/scissors.png" alt="scissors image"/></button>
+    </div>
+
+    <!-- Play button -->
+    <button id="play">Play</button>
+
+    <!-- Reset button (hidden until the game is over) -->
+    <button id="reset" style="display: none;">Reset</button>
+
+    <!-- Display area for game results -->
+    <div id="result"></div>
+
+    <!-- Display area for final result -->
+    <div id="final-result"></div>
+
+    <script type="text/javascript" src="new.js"></script>
+</body>
+</html>
