@@ -1,6 +1,7 @@
 // JavaScript code
+const choices = ['rock', 'paper', 'scissors'];
+
 function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
@@ -21,7 +22,6 @@ function playerRound(playerSelection, computerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
-let round = 0;
 let gameEnded = false; //variable to track if the game has ended
 
 function playRound(playerSelection) {
@@ -35,8 +35,7 @@ function playRound(playerSelection) {
 
     updateScores(result);
 
-    round++;
-    if (round === 5) {
+    if (playerScore >= 5 || computerScore >= 5) {
         showFinalResult();
     }
 }
@@ -46,73 +45,25 @@ function updateScores(result) {
         playerScore++;
     } else if (result.startsWith('You lose!')) {
         computerScore++;
-    } else {
-        playerScore++;
-        computerScore++;
     }
+    // Update the score display
+    document.getElementById('score').textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
 }
 
 function showFinalResult() {
     const finalResultDiv = document.getElementById('final-result');
     if (playerScore > computerScore) {
         finalResultDiv.textContent = 'Congratulations! You won the game!';
-    } else if (playerScore < computerScore) {
-        finalResultDiv.textContent = 'Game Over! You lost the game!';
     } else {
-        finalResultDiv.textContent = 'It\'s a tie! The game is drawn.';
+        finalResultDiv.textContent = 'Game Over! You lost the game!';
     }
 
     gameEnded = true; // Set the gameEnded flag to true since the game is over
-    // Hide the play button and show the reset button
-    document.getElementById('play').style.display = 'none';
-    document.getElementById('reset').style.display = 'block';
 }
 
-// Event listener for "Play" button click
-document.getElementById('play').addEventListener('click', function() {
-    // Reset the game state
-    playerScore = 0;
-    computerScore = 0;
-    round = 0;
-    gameEnded = false;
-
-    // Clear the final result message if any
-    const finalResultDiv = document.getElementById('final-result');
-    finalResultDiv.textContent = '';
-
-    // Add back the event listeners for the buttons
-    document.getElementById('rock').addEventListener('click', function() {
-        playRound('rock');
+// Event listener for each selection button click
+choices.forEach(choice => {
+    document.getElementById(choice).addEventListener('click', function() {
+        playRound(choice);
     });
-
-    document.getElementById('paper').addEventListener('click', function() {
-        playRound('paper');
-    });
-
-    document.getElementById('scissors').addEventListener('click', function() {
-        playRound('scissors');
-    });
-
-    // Start the game
-    playRound();
-});
-
-// Event listener for "Reset" button click
-document.getElementById('reset').addEventListener('click', function() {
-    // Reset the game state
-    playerScore = 0;
-    computerScore = 0;
-    round = 0;
-    gameEnded = false;
-
-    // Clear the final result message
-    const finalResultDiv = document.getElementById('final-result');
-    finalResultDiv.textContent = '';
-
-    // Hide the reset button and show the play button
-    document.getElementById('reset').style.display = 'none';
-    document.getElementById('play').style.display = 'block';
-
-    // Start the game
-    playRound();
 });
